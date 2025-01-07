@@ -39,3 +39,53 @@ const arr5 = [10, 15, 20, 22, 30];
 
 const output5 = arr5.filter((item) => item % 5 === 0);
 console.log(output5, "output5");
+
+// level 2
+
+const arr6 = [5, 8, 12, 19, 22];
+
+const output6 = arr6
+  .filter((item) => {
+    return item % 2 === 0;
+  })
+  .map((item) => {
+    return item / 2;
+  });
+
+console.log(output6, "output6");
+
+const arr7 = [
+  { name: "Laptop", price: 1000, inStock: true },
+  { name: "Phone", price: 500, inStock: false },
+  { name: "Tablet", price: 800, inStock: true },
+];
+
+const output7 = arr7.filter((item) => {
+  return item.inStock;
+});
+
+console.log(output7, "output7");
+
+const arr8 = ["hello", "world", "javascript", "map"];
+
+const output8 = arr8
+  .filter((item) => {
+    return item.length > 5;
+  })
+  .map((data) => {
+    return data.toUpperCase();
+  });
+
+console.log(output8, "output8");
+
+const arr9 = [10, 25, 30, 50, 65];
+
+const output9 = arr9
+  .filter((item) => {
+    return item % 5 === 0;
+  })
+  .map((data) => {
+    return data * data;
+  });
+
+console.log(output9, "output9");
