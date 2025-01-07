@@ -121,3 +121,51 @@ const output11 = arr11.reduce((acc, curr) => {
 }, []);
 
 console.log(output11, "output11");
+
+const arr12 = [
+  { category: "Electronics", price: 100 },
+  { category: "Clothing", price: 50 },
+  { category: "Electronics", price: 150 },
+];
+
+const output12 = Object.values(
+  arr12.reduce((acc, curr) => {
+    if (!acc[curr.category]) {
+      acc[curr.category] = {
+        [curr.category]: 0,
+      };
+    }
+    acc[curr.category][curr.category] += curr.price;
+    return acc;
+  }, {})
+);
+
+console.log(output12, "output12");
+
+const arr13 = ["apple", "banana", "apple", "orange", "banana", "apple"];
+
+const output13 = arr13.reduce((acc, curr) => {
+  if (!acc[curr]) {
+    acc[curr] = 0;
+  }
+  acc[curr] += 1;
+  return acc;
+}, {});
+
+console.log(output13, "output13");
+
+const arr14 = [
+  { customerId: 1, amount: 200 },
+  { customerId: 2, amount: 150 },
+  { customerId: 1, amount: 100 },
+];
+
+const output14 = arr14.reduce((acc, curr) => {
+  if (!acc[curr.customerId]) {
+    acc[curr.customerId] = 0;
+  }
+  acc[curr.customerId] += curr.amount;
+  return acc;
+}, {});
+
+console.log(output14, "output14");
