@@ -169,3 +169,115 @@ const output14 = arr14.reduce((acc, curr) => {
 }, {});
 
 console.log(output14, "output14");
+
+const arr15 = [
+  { type: "credit", amount: 500 },
+  { type: "debit", amount: 200 },
+  { type: "credit", amount: 300 },
+];
+
+const output15 = arr15.reduce((acc, curr) => {
+  if (!acc[curr.type]) {
+    acc[curr.type] = 0;
+  }
+  acc[curr.type] += curr.amount;
+  return acc;
+}, {});
+
+console.log(output15, "output15");
+
+const arr16 = [
+  { id: 1, name: "Item A" },
+  { id: 2, name: "Item B" },
+  { id: 1, name: "Item A" },
+];
+
+const output16 = Object.values(
+  arr16.reduce((acc, curr) => {
+    if (!acc[curr.id]) {
+      acc[curr.id] = { id: curr.id, name: curr.name };
+    }
+    return acc;
+  }, {})
+);
+
+console.log(output16, "output16");
+
+const arr17 = [
+  { status: "pending", priority: "high" },
+  { status: "completed", priority: "low" },
+  { status: "pending", priority: "low" },
+];
+
+const output17 = arr17.reduce((acc, curr) => {
+  if (!acc[curr.status]) {
+    acc[curr.status] = { high: 0, low: 0 };
+  }
+  if (curr.priority === "high") {
+    acc[curr.status].high += 1;
+  } else {
+    acc[curr.status].low += 1;
+  }
+  return acc;
+}, {});
+
+console.log(output17, "output17");
+
+const arr18 = [
+  { name: "John", department: "HR" },
+  { name: "Alice", department: "Engineering" },
+  { name: "Bob", department: "HR" },
+];
+
+const output18 = Object.values(
+  arr18.reduce((acc, curr) => {
+    if (!acc[curr.department]) {
+      acc[curr.department] = {
+        [curr.department]: 0,
+      };
+    }
+    acc[curr.department][curr.department] += 1;
+    return acc;
+  }, {})
+);
+
+console.log(output18, "output18");
+
+const arr19 = [
+  { name: "Alice", score: 80 },
+  { name: "Bob", score: 70 },
+  { name: "Alice", score: 90 },
+];
+
+const output19 = Object.values(
+  arr19.reduce((acc, curr) => {
+    if (!acc[curr.name]) {
+      acc[curr.name] = { name: curr.name, score: 0, count: 0 };
+    }
+    acc[curr.name].score += curr.score;
+    acc[curr.name].count += 1;
+    return acc;
+  }, {})
+).map((item) => ({
+  name: item.name,
+  average: item.score / item.count,
+}));
+
+console.log(output19, "output19");
+
+const arr20 =  [
+  { itemName: "Apple", quantity: 3 },
+  { itemName: "Banana", quantity: 2 },
+  { itemName: "Apple", quantity: 1 },
+];
+
+const output20 = arr20.reduce((acc, curr)=> {
+      if(!acc[curr.itemName]){
+        acc[curr.itemName] = 0;
+      }
+      acc[curr.itemName]+= curr.quantity;
+      return acc;
+}, {})
+
+console.log(output20, "output20");
+
