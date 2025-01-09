@@ -265,19 +265,45 @@ const output19 = Object.values(
 
 console.log(output19, "output19");
 
-const arr20 =  [
+const arr20 = [
   { itemName: "Apple", quantity: 3 },
   { itemName: "Banana", quantity: 2 },
   { itemName: "Apple", quantity: 1 },
 ];
 
-const output20 = arr20.reduce((acc, curr)=> {
-      if(!acc[curr.itemName]){
-        acc[curr.itemName] = 0;
-      }
-      acc[curr.itemName]+= curr.quantity;
-      return acc;
-}, {})
+const output20 = arr20.reduce((acc, curr) => {
+  if (!acc[curr.itemName]) {
+    acc[curr.itemName] = 0;
+  }
+  acc[curr.itemName] += curr.quantity;
+  return acc;
+}, {});
 
 console.log(output20, "output20");
 
+const users = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 17 },
+  { name: "Charlie", age: 35 },
+  { name: "David", age: 12 },
+  { name: "Eve", age: 42 },
+];
+
+const output = users.reduce((acc, curr) => {
+  if (!acc["Children"]) acc["Children"] = [];
+  if (!acc["YoungAdults"]) acc["YoungAdults"] = [];
+  if (!acc["Adults"]) acc["Adults"] = [];
+
+  if (curr.age < 18) {
+    acc["Children"].push(curr.name);
+  }
+  if (curr.age >= 18 && curr.age <= 35) {
+    acc["YoungAdults"].push(curr.name);
+  }
+  if (curr.age > 35) {
+    acc["Adults"].push(curr.name);
+  }
+  return acc;
+}, {});
+
+console.log(output, "output");
