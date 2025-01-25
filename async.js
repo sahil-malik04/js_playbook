@@ -22,7 +22,9 @@ const getProducts = async () => {
   }
 };
 
-getProducts();
+setTimeout(() => {
+  getProducts();
+}, 5000);
 
 console.log("d");
 console.log("e");
