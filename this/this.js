@@ -38,3 +38,13 @@ let user2 = {
   },
 };
 user2.getDetails();
+
+let user3 = {
+  name: "test user 1",
+  getName() {
+    const name = "test user 2";
+    console.log(this.name);
+  },
+};
+
+console.log(user3.getName());
